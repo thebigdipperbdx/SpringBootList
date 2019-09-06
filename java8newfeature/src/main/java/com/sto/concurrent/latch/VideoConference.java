@@ -1,4 +1,4 @@
-package com.sto.concurrent.CountDownLatch;
+package com.sto.concurrent.latch;
 
 import java.util.concurrent.CountDownLatch;
 

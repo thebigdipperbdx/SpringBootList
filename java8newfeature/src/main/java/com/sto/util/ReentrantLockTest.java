@@ -13,13 +13,12 @@ public class ReentrantLockTest {
         ReentrantLock lock=new ReentrantLock();
         try {
             if (lock.tryLock()){
-                //业务操作
+                //业务逻辑处理
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             lock.unlock();
         }
-
     }
 }
