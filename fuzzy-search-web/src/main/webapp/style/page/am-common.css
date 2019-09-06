@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+/*	项目名称：梧桐
+ *	文件名称：APP后台管理公用样式
+ *	开发时间：2017/08/10
+ * 	开发人员：398146685@qq.com
+ * */
+
+
+
+.width_80{
+    width: 80px;
+}
+
+.width_90{
+    width: 90px !important;
+}
+
+.ibox .ibox_title {
+	padding: 0;
+}
+
+.ibox .ibox_title span {
+	display: inline-block;
+	margin: 0 10px;
+	padding: 6px 0;
+	border-bottom: 2px solid #f58664;
+}
+
+.today-total{
+    width: 100%;
+}
+
+/*数据统计页面*/
+.inner-welcome-box1{
+	margin-bottom: 15px;
+}
+
+.arc{
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	border-bottom: 1px solid #e5e5e5;
+	padding-left: 20px;
+}
+
+.layui-row{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.layui-col-md3 p{
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+}
+
+.layui-col-md3 p.title1{
+	text-align: left;
+	margin-left: 2px;
+}
+
+.layui-col-md3 .title{
+	color: #666666;
+	font-size: 14px;
+}
+
+.layui-col-md3 .title img{
+	float: left;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+.layui-col-md3 .title span{
+	height: 35px;
+	line-height: 26px;
+}
+
+.layui-col-md3 .number{
+	font-size: 30px;
+	font-weight: 600;
+	color: #444444;
+}
+
+.layui-col-md3 .mouth_number{
+	font-size: 30px;
+	font-weight: 600;
+	color: #444444;
+	text-align: left;
+}
+
+.layui-col-md3 .pre span{
+	color: #999999;
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+.layui-col-md3 .pre i{
+	
+	color: #ff0914;
+	border-radius: 50%;
+}
+
+.part2{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.part2 .title{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.part2 .title i{
+	font-size: 70px;
+}
+
+.left{
+	width: 55%;
+	float: left;
+}
+
+.right{
+	width: calc(45% - 16px);
+	float: right;
+}
+
+/*新闻详情查看*/
+.news_detail h3.title {
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+}
+
+.news_detail h5{
+	font-size: 14px;
+	color: #999999;
+	font-weight: 500;
+	text-align: center;
+	margin: 8px 0 10px;
+}
+
+.news_detail .news_cont{
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.news_detail .news_cont img{
+	max-width: 100%;
+	height: auto;
+	margin: 10px 0;
+}
+
+.news_detail .news_cont p{
+	margin: 10px 0;
+	color: #444444;
+	text-align: left;
+	text-indent: 35px;
+	line-height: 22px;
+}
+
+.dz-btn{
+	margin-top: 6px;
+	width: 100%;
+}
