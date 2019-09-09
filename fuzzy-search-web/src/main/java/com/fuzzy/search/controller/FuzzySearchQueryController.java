@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.text.DateFormat;
@@ -22,7 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Controller
 @RequestMapping("/fuzzySearch")
@@ -59,7 +57,6 @@ public class FuzzySearchQueryController {
         try {
             FileInputStream inputStream=FileUtils.openInputStream(new File(filePath));
             LineIterator it=IOUtils.lineIterator(inputStream, "GBK");
-            AtomicInteger num=new AtomicInteger(0);
             while (it.hasNext()) {
                 String line=it.nextLine();
                 if (line.contains(map.get("id"))){

@@ -12,13 +12,17 @@ public class ReentrantLockTest {
     public static void main(String[] args){
         ReentrantLock lock=new ReentrantLock();
         try {
-            if (lock.tryLock()){
-                //业务逻辑处理
-            }
+            //加锁
+            lock.lock();
+            //业务逻辑处理
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            //释放锁
             lock.unlock();
         }
     }
+
+
+
 }
