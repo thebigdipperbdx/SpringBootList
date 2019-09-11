@@ -1,8 +1,8 @@
-package com.sto.pattern;
+package com.sto.pattern.decorator;
 
 /**
  * @author yanyugang
- * @description
+ * @description 结构型模式--装饰器模式
  * @date 2019-09-06 11:27
  */
 public class DecoratorPatternTest {

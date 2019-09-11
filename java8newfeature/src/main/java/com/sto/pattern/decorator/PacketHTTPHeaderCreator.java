@@ -1,4 +1,4 @@
-package com.sto.pattern;
+package com.sto.pattern.decorator;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
