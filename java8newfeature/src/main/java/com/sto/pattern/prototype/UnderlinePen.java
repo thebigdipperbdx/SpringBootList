@@ -18,7 +18,6 @@ public class UnderlinePen implements Product {
         System.out.println("\"" + s + "\"");
         for (int i = 0; i < length + 2; i++) {
             System.out.print(ulchar);
-
         }
         System.out.println("");
     }

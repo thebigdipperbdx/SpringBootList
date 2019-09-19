@@ -9,17 +9,15 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class AtomicIntegerTest {
     public static void main(String[] args){
-        final int value=21;
         AtomicInteger num=new AtomicInteger(10);
         System.out.println("AtomicInteger当前值====>" + num.get());
         System.out.println("设置新值，返回旧值====>" + num.getAndSet(20));
         System.out.println("AtomicInteger当前值====>" + num.get());
-        // 加一操作
-        num.addAndGet(1);
+        // 加5操作
+        num.addAndGet(5);
         System.out.println("AtomicInteger当前值====>" + num.get());
-        // 比较相等
-        if (num.get()==value){
-            System.out.println(num + " equals " + value);
-        }
+        // 加5操作
+        num.getAndAdd(5);
+        System.out.println("AtomicInteger当前值====>" + num.get());
     }
 }
