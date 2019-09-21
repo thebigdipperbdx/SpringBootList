@@ -1,4 +1,4 @@
-package com.sto.collection.foreach;
+package com.list;
 
 import java.util.ArrayList;
 import java.util.Arrays;
