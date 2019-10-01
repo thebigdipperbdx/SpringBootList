@@ -2,7 +2,7 @@ package com.sto.pattern.adapter;
 
 /**
  * @author yanyugang
- * @description ${todo}
+ * @description 被适配者
  * @date 2019/9/15 21:38
  */
 public class Adaptee {

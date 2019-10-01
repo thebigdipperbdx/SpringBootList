@@ -2,7 +2,7 @@ package com.sto.pattern.adapter;
 
 /**
  * @author yanyugang
- * @description ${todo}
+ * @description 目标抽象类
  * @date 2019/9/15 21:37
  */
 public interface Target {

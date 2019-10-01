@@ -2,7 +2,7 @@ package com.sto.pattern.adapter;
 
 /**
  * @author yanyugang
- * @description ${todo}
+ * @description 适配器类
  * @date 2019/9/15 21:39
  */
 public class Adapter implements Target {
