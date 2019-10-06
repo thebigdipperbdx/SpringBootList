@@ -73,4 +73,11 @@ public class FuzzySearchQueryController {
         return model;
     }
 
+
+    @RequestMapping("/resume")
+    public ModelAndView resume(HttpServletRequest request){
+        ModelAndView view=new ModelAndView("resume");
+        return view;
+    }
+
 }

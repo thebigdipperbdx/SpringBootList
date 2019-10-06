@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author yanyugang
- * @description 实现BeanNameAware接口，BeanFactoryAware接口
+ * @description 实现BeanNameAware接口，BeanFactoryAware接口，BeanPostProcessor接口
  * @date 2019/8/18 21:13
  */
 @Component

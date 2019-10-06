@@ -16,7 +16,6 @@ import org.springframework.session.web.http.DefaultCookieSerializer;
 public class FuzzySearchApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args){
-        System.out.println("------------------");
         SpringApplication.run(FuzzySearchApplication.class, args);
     }
 
