@@ -13,11 +13,11 @@ public class ArrayBlockingQueueTest {
         ArrayBlockingQueue<String> queue=new ArrayBlockingQueue<>(10);
         queue.add("Hello");
         queue.add("World");
+        queue.add("Hello");
+        queue.add("Tom");
         System.out.println(queue.size());
         System.out.println(queue.peek());
+        queue.add("TianMing");
 
-        for (String value : queue) {
-            System.out.println(value);
-        }
     }
 }
