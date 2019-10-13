@@ -1,4 +1,4 @@
-package com.pattern.facadepattern;
+package com.io.facadepattern;
 
 /**
  * @author yanyugang

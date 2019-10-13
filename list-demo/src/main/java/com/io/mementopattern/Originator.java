@@ -1,4 +1,4 @@
-package com.pattern.mementopattern;
+package com.io.mementopattern;
 
 /**
  * @author yanyugang
