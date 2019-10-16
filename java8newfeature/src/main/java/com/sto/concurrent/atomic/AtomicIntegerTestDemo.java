@@ -1,4 +1,4 @@
-package com.sto.concurrent;
+package com.sto.concurrent.atomic;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @description AtomicInteger的使用
  * @date 2019/9/7 11:34
  */
-public class AtomicIntegerTest {
+public class AtomicIntegerTestDemo {
     private static final AtomicInteger num = new AtomicInteger(0);
     // 设置200条订单生成一个文件
     private static final AtomicInteger total = new AtomicInteger(2);

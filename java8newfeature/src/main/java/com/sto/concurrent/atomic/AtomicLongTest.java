@@ -1,4 +1,4 @@
-package com.sto.atomic;
+package com.sto.concurrent.atomic;
 
 import java.util.concurrent.atomic.AtomicLong;
 
