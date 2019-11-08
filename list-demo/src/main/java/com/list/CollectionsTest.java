@@ -18,5 +18,8 @@ public class CollectionsTest {
         Integer max=Collections.max(list);
         System.out.println(max);
 
+        Double d =null;
+        System.out.println(d.toString());
+
     }
 }

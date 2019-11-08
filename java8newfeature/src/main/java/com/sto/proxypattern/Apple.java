@@ -8,6 +8,6 @@ package com.sto.proxypattern;
 public class Apple implements Fruit{
     @Override
     public void show() {
-        System.out.println("<<<<show method is invoked");
+        System.out.println("<<<<Apple show method is invoked");
     }
 }
