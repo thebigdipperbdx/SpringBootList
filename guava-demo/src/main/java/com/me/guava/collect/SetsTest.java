@@ -34,7 +34,8 @@ public class SetsTest {
         intersection.forEach(n -> System.out.print(n + " "));
         System.out.println();
         System.out.println("---------set1和set2差集--------------");
-        Sets.SetView<String> difference=Sets.difference(set1, set2);//差集 1中有而2中没有的
+        //差集 1中有而2中没有的
+        Sets.SetView<String> difference=Sets.difference(set1, set2);
         difference.forEach(n -> System.out.print(n + " "));
         System.out.println();
         System.out.println("---------set1和set2相对差集--------------");
@@ -42,7 +43,6 @@ public class SetsTest {
         Sets.SetView<String> symmetricDifference=Sets.symmetricDifference(set1, set2);
         symmetricDifference.forEach(n -> System.out.print(n + " "));
         System.out.println();
-
 
     }
 }
