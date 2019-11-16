@@ -1,6 +1,10 @@
 package com.sto.util;
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author yanyugang
@@ -9,12 +13,19 @@ import java.util.concurrent.CountDownLatch;
  */
 public class CountDownLatchTest {
 
+
     public static void main(String[] args) throws InterruptedException {
+        //创建工作等待队列
+        BlockingQueue workQueue = new ArrayBlockingQueue(3);
+        //创建自定义线程池
+        ThreadPoolExecutor myThreadPool = new ThreadPoolExecutor(
+                2, 4, 100, TimeUnit.SECONDS, workQueue);
+
         System.out.println("====begin====");
 
         // 匿名内部类
         // 当前线程需要等待的线程数
-        CountDownLatch countDownLatch = new CountDownLatch(2) {
+        CountDownLatch countDownLatch = new CountDownLatch(6) {
             @Override
             public void await() throws InterruptedException {
                 super.await();
@@ -22,38 +33,32 @@ public class CountDownLatchTest {
             }
         };
 
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(Thread.currentThread().getName() + " is done");
-                // 释放锁
-                countDownLatch.countDown();
-            }
-        }, "thread1");
 
-        Thread thread2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(Thread.currentThread().getName() + " is done");
-                // 释放锁
-                countDownLatch.countDown();
+        myThreadPool.execute(()->{
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        }, "thread2");
+            System.out.println(Thread.currentThread().getName() + " is done");
+            // 释放锁
+            countDownLatch.countDown();
+        });
 
-        thread1.start();
-        thread2.start();
+        myThreadPool.execute(()->{
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() + " is done");
+            // 释放锁
+            countDownLatch.countDown();
+        });
+
         // Causes the current thread to wait until the latch has counted down to zero
         countDownLatch.await();
+        System.out.println(countDownLatch.getCount());
         System.out.println("====end====");
     }
 }

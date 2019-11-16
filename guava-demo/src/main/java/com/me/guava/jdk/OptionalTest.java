@@ -23,5 +23,9 @@ public class OptionalTest {
         Integer integer=Optional.of(num).filter(t -> t > 6).orElse(0);
         System.out.println(integer);
 
+        Optional<Integer> possible=Optional.of(5);
+        possible.isPresent(); // returns true
+        possible.get(); // returns 5
+
     }
 }

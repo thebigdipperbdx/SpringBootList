@@ -5,8 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ListToArray {
+    public static void main(String[] args){
+        testList2Array();
+    }
+
     //集合转化为数组
-    public void testList2Array(){
+    public static void testList2Array(){
 
         // 构建一个集合
         List<String> list=new ArrayList<>();
@@ -16,6 +20,9 @@ public class ListToArray {
 
         // 转为数组
         String[] strings=list.toArray(new String[list.size()]);
+
+        // 转为数组
+        Object[] strings2= list.toArray();
 
         // 遍历
         Arrays.stream(strings).forEach(System.out::println);
