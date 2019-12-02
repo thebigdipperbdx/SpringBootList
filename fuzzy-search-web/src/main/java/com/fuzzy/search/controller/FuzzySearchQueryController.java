@@ -5,15 +5,18 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.LineIterator;
 import org.apache.log4j.Logger;
+import org.omg.CORBA_2_3.ORB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.text.DateFormat;
@@ -25,6 +28,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/fuzzySearch")
 @SuppressWarnings("all")
+@CrossOrigin(origins="*",maxAge=3600)
 public class FuzzySearchQueryController {
     private static Logger logger=Logger.getLogger(FuzzySearchQueryController.class);
     @Value("${file.path}")
@@ -35,6 +39,9 @@ public class FuzzySearchQueryController {
 
     @RequestMapping("/execute")
     public ModelAndView execute(HttpServletRequest request){
+        HttpSession session=request.getSession();
+        session.setAttribute("hello","world");
+
         ModelAndView view=new ModelAndView("fuzzysearch");
         DateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Date date=new Date();
@@ -46,6 +53,8 @@ public class FuzzySearchQueryController {
         view.addObject("timestamp", System.currentTimeMillis());
 
         helloBean.executeProcess("sayBean");
+
+        System.out.println(session.getAttribute("hello"));
         return view;
     }
 
