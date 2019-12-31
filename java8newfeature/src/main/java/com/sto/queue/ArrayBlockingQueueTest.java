@@ -9,15 +9,10 @@ import java.util.concurrent.ArrayBlockingQueue;
  */
 public class ArrayBlockingQueueTest {
     public static void main(String[] args){
-        // 先进先出（FIFO—first in first out）
-        ArrayBlockingQueue<String> queue=new ArrayBlockingQueue<>(10);
-        queue.add("Hello");
-        queue.add("World");
-        queue.add("Hello");
-        queue.add("Tom");
-        System.out.println(queue.size());
-        System.out.println(queue.peek());
-        queue.add("TianMing");
-
+        String [] arr={"1","2","3" };
+        for (int i=0;i<8;i++){
+            System.out.println(arr[i]);
+        }
+//ArrayIndexOutOfBoundsException
     }
 }
