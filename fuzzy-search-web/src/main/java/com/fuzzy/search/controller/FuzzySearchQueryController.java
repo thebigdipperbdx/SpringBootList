@@ -39,6 +39,7 @@ public class FuzzySearchQueryController {
         view.addObject("start", sdf.format(c.getTime()));
         view.addObject("end", sdf.format(c.getTime()));
         view.addObject("timestamp", System.currentTimeMillis());
+        System.out.println("方法执行体");
         return view;
     }
 
@@ -71,6 +72,14 @@ public class FuzzySearchQueryController {
     public ModelAndView resume(HttpServletRequest request){
         ModelAndView view=new ModelAndView("resume");
         return view;
+    }
+
+    @RequestMapping("/printHello")
+    @ResponseBody
+    public String printHelloFun(){
+        String str="Hello World!!!!!";
+        System.out.println(str);
+        return str;
     }
 
 }
