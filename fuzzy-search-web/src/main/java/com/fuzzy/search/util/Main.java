@@ -5,12 +5,13 @@ package com.fuzzy.search.util;
  * @description
  * @date 2019-08-19 15:54
  */
-public class Main {
-    public static void main(String[] args){
-        String msg="timeout";
-        if (msg.indexOf("timeout")!=-1){
-            msg="查询超时，请稍后重试！";
-        }
-        System.out.println(msg);
-    }
+public class Main{
+    /*public static void main(String[] args){
+        Boolean bl=new Boolean(true);
+        Boolean tl=new Boolean(false);
+        System.out.println("bl===="+bl);
+        System.out.println("tl===="+tl);
+        bl=tl;
+        System.out.println("bl===="+bl);
+    }*/
 }

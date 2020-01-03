@@ -9,8 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author yanyugang
- * @description
- * 官方配置文档：
+ * @description 官方配置文档：
  * https://docs.spring.io/spring/docs/5.1.13.BUILD-SNAPSHOT/spring-framework-reference/core.html#aop-ataspectj
  * @date 2019-12-31 9:50
  */
@@ -18,14 +17,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogAspect {
 
-
+    // 可以自定义注解，再需要拦截的地方加上自定义注解
     // 切点表达式限制为包含指定注解RequestMapping的连接点（配置方式一）
     @Pointcut("@annotation(org.springframework.web.bind.annotation.RequestMapping)")
-    public void cutPoint() {
+    public void cutPoint(){
     }
 
     @Around("cutPoint()")
-    public Object bizOnPoint(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object bizOnPoint(ProceedingJoinPoint joinPoint) throws Throwable{
         System.out.println("前置通知（@Before的作用）");
         Object result=null;
         try {
@@ -34,8 +33,9 @@ public class LogAspect {
             Object[] args=joinPoint.getArgs();
             // 方法的相关信息，方法名等
             Signature signature=joinPoint.getSignature();
-            // 方法名
-            String name=signature.getName();
+            // 全类名#方法名
+            String identity=joinPoint.getSignature().getDeclaringTypeName()
+                    .concat("#").concat(joinPoint.getSignature().getName());
             int modifiers=signature.getModifiers();
             // 执行方法
             result=joinPoint.proceed();
@@ -51,11 +51,11 @@ public class LogAspect {
 
     // 切点表达式限制为指定包路径com.fuzzy.search.controller下的任何类的任何方法（配置方式二）
     @Pointcut("execution(* com.fuzzy.search.controller.*.*(..))")
-    public void myPoint() {
+    public void myPoint(){
     }
 
     @Around("myPoint()")
-    public Object bizMyPoint(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object bizMyPoint(ProceedingJoinPoint joinPoint) throws Throwable{
         System.out.println("bizMyPoint");
         System.out.println("前置通知（@Before的作用）");
         Object result=null;
