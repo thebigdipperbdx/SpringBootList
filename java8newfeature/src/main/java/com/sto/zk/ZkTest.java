@@ -3,39 +3,47 @@ package com.sto.zk;
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.ZkConnection;
 import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.data.Stat;
+import org.apache.zookeeper.ZooDefs;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
  * @author yanyugang
  * @description
+ * ZooKeeper 分布式锁原理：临时有序节点
+ * 1、创建永久性锁节点
+ * 2、在锁节点下创建临时节点
+ * 3、只有当前节点是锁节点下的最小节点，则获取锁成功
  * @date 2019-09-11 15:24
  */
 public class ZkTest {
+    private static final String LOCK_ROOT_PATH="/money/lock";
+    private static final String LOCK_NODE_NAME="Lock_";
+
     public static void main(String[] args){
         String connect_addr="127.0.0.1:2181";
         // 建立连接
         ZkClient zkc=new ZkClient(new ZkConnection(connect_addr), 10000);
-        // 创建节点
-//        zkc.create("/super", "1234", CreateMode.PERSISTENT);
-//        zkc.create("/super/c1", "c1内容", CreateMode.PERSISTENT);
-//        zkc.create("/super/c2", "c2内容", CreateMode.PERSISTENT);
+        // 创建永久性锁节点
+        boolean flg=zkc.exists(LOCK_ROOT_PATH);
+        if (!flg){
+            // 创建永久性锁节点
+            zkc.createPersistent(LOCK_ROOT_PATH, true);
+        }
 
-        //读取节点的值
-        Object data=zkc.readData("/super");
-        System.out.println(data);
-
-        // 判断节点是否存在
-        boolean flg = zkc.exists("/super/c2");
-        //返回 true表示节点存在 ，false表示不存在
-        System.out.println(flg);
-
-        //删除单独一个节点，返回true表示成功
-        boolean e1 = zkc.delete("/super/c2");
-        //删除含有子节点的节点
-        boolean e2 = zkc.deleteRecursive("/super");
-
+        List<String> list;
+        for (int i=0; i < 10; i++) {
+            // 临时有序节点
+            // 创建EPHEMERAL_SEQUENTIAL类型节点
+            String lockPath=zkc.create(LOCK_ROOT_PATH + "/" + LOCK_NODE_NAME,
+                    Thread.currentThread().getName().getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE,
+                    CreateMode.EPHEMERAL_SEQUENTIAL);
+            System.out.println(lockPath);
+        }
+        list=zkc.getChildren(LOCK_ROOT_PATH);
+        Collections.sort(list);
+        System.out.println("最小节点值==================>" + list.get(0));
 
     }
 }
