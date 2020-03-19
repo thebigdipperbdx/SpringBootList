@@ -12,5 +12,7 @@ public class TestMain {
     public static void main(String[] args) {
         Calendar calendar=Calendar.getInstance();
         System.out.println(calendar.toString());
+
+        System.out.println(1 << 16);
     }
 }

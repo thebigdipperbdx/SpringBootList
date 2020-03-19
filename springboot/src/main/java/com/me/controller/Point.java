@@ -24,4 +24,10 @@ public class Point {
     public void setY(int y){
         this.y=y;
     }
+
+    public static void main(String[] args){
+        int oldCapacity=18;
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        System.out.println(newCapacity);
+    }
 }

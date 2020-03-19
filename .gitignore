@@ -24,3 +24,10 @@ nbdist/
 
 #Mac
 .DS_Store
+
+
+# �Զ����ļ�
+my-dispatch-job/
+
+##
+*/.mvn/*
