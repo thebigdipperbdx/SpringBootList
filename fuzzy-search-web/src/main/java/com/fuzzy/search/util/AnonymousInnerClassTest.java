@@ -12,20 +12,23 @@ import java.util.List;
  * @date 2019-08-15 15:28
  */
 public class AnonymousInnerClassTest {
-    public static void main(String[] args){
-        Gson gson=new Gson();
+    public static void main(String[] args) {
+        Gson gson = new Gson();
 
-        String str="{ \"mailNo\": \"12345678\",\"orgCode\": \"315005\"}";
+        String str = "{ \"mailNo\": \"12345678\",\"orgCode\": \"315005\"}";
         // 单个对象
         NameReq nameReq = gson.fromJson(str, NameReq.class);
 
-        String strList="[{ \"mailNo\": \"12345678\",\"orgCode\": \"315005\"},{ \"mailNo\": \"12345678\",\"orgCode\": \"315005\"}]";
+        String strList = "[{ \"mailNo\": \"12345678\",\"orgCode\": \"315005\"},{ \"mailNo\": \"12345678\",\"orgCode\": \"315005\"}]";
         // 集合对象
-        List<NameReq> nameReqList=gson.fromJson(strList,new TypeToken<List<NameReq>>(){}.getType());
+        List<NameReq> nameReqList = gson.fromJson(strList, new TypeToken<List<NameReq>>() {
+        }.getType());
 
         /**
          * 定义了一个继承TypeToken的匿名内部类
          */
-        Type type=new TypeToken<List<NameReq>>() {}.getType();
+        Type type = new TypeToken<List<NameReq>>() {
+        }.getType();
+        System.out.println("type======>" + type);
     }
 }
