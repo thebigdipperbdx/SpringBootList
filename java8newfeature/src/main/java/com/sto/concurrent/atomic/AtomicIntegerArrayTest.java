@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
 
 /**
  * @author yanyugang
- * @description
+ * @description 原子整型数组
  * @date 2019-09-19 14:11
  */
 public class AtomicIntegerArrayTest {
@@ -18,7 +18,7 @@ public class AtomicIntegerArrayTest {
         // 索引为1的元素加3
         atomicIntegerArray.addAndGet(1, 3);
         System.out.println("AtomicIntegerArray array==>" + atomicIntegerArray.toString());
-        // 索引为1的元素加1
+        // 索引为0的元素加1
         atomicIntegerArray.incrementAndGet(0);
         System.out.println("AtomicIntegerArray array==>" + atomicIntegerArray.toString());
 

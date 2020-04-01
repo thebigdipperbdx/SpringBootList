@@ -7,20 +7,33 @@ package com.clone;
  */
 public class User implements Cloneable {
     private String name;
+    private Teacher teacher;
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
-        this.name=name;
+    public void setName(String name) {
+        this.name = name;
     }
 
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    // 重写 clone 方法
     @Override
     protected Object clone() {
-        User user=null;
+        User user = null;
         try {
-            user=(User) super.clone();
+            user = (User) super.clone();
+            Teacher teacher= (Teacher) this.teacher.clone();
+            user.setTeacher(teacher);
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
@@ -29,10 +42,8 @@ public class User implements Cloneable {
 
 
     @Override
-    public String toString(){
-        return "User{" +
-                "name='" + name + '\'' +
-                '}';
+    public String toString() {
+        return "User{name=" + name + "} Teacher{name=" + teacher.getName() + "}";
     }
 
 

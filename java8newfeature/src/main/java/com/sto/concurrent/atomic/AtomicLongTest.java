@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author yanyugang
- * @description
+ * @description 原子长整型
  * @date 2019-09-19 14:00
  */
 public class AtomicLongTest {

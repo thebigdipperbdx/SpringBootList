@@ -16,7 +16,7 @@ import java.net.URL;
 
 /**
  * @author yanyugang
- * @description ${todo}
+ * @description HTTP工具类
  * @date 2019-03-28 9:47
  */
 public class HttpsUtils {

@@ -1,0 +1,23 @@
+## 8种基本数据类型
+byte
+short
+int
+float
+double
+long
+boolean
+char
+
+## bean 的注入方式
+属性注入
+构造器注入
+注解注入
+
+## bean 的作用域
+singleton
+prototype
+request
+session
+globalSession
+
+
